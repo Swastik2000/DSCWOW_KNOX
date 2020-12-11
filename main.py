@@ -74,3 +74,35 @@ def train_data():
     print mean_squared_error(y_test, pred)
 
     joblib.dump(clf, 'weather_predictor.pkl')
+
+
+    def get_the_weather(date):
+    weather = data1.day
+    temp = data1.temperature
+
+    for i in range(0, len(weather)):
+        day = datetime.datetime.strptime(weather[i], "%Y-%m-%d")
+        if (day == date):
+            return temp[i]
+            
+
+
+def predict_weather():
+    clf = joblib.load('weather_predictor.pkl')
+    print("-" * 48)
+    print("Enter the details of the date you would like to predict")
+    print("\n")
+    option = input("Year: ")
+    year = option
+    option = input("Month number (00): ")
+    month = option
+    option = input("Day number (00): ")
+    theday = option
+
+    day = str(year) + "-" + str(month) + "-" + str(theday)
+    day = datetime.datetime.strptime(day, "%Y-%m-%d")
+    date = (day - datetime.datetime(1970,1,1)).total_seconds()
+
+    day_x = str(year) + "-" + str(month) + "-" + str(theday+1)
+    day_x = datetime.datetime.strptime(day_x, "%Y-%m-%d")
+    date_x = (day_x - datetime.datetime(1970,1,1)).total_seconds()
