@@ -1,3 +1,6 @@
 # DSCWOW_KNOX
  
-Contributors
+## Contributors
+Swastik Mishra
+Ayush Agrawal
+Sourab Bera
