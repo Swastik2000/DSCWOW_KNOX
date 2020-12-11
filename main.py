@@ -58,4 +58,19 @@ def train_data():
                                                         )
 
 
-    
+    scaler = preprocessing.StandardScaler().fit(X_train)
+    X_train_scaled = scaler.transform(X_train)
+ 
+    pipeline = make_pipeline(preprocessing.StandardScaler(), 
+                         RandomForestRegressor(n_estimators=100))
+
+    hyperparameters = { 'randomforestregressor__max_features' : ['auto', 'sqrt', 'log2'],
+                  'randomforestregressor__max_depth': [None, 5, 3, 1], }
+
+    clf = LinearRegression()
+    clf.fit(X_train, y_train)
+    pred = clf.predict(X_test)
+    print r2_score(y_test, pred)
+    print mean_squared_error(y_test, pred)
+
+    joblib.dump(clf, 'weather_predictor.pkl')
