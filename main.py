@@ -16,7 +16,14 @@ import sklearn.svm as svm
 from sklearn.linear_model import LinearRegression
 
 
-
+dataset_url1 = 'https://opendata-download-metobs.smhi.se/api/version/1.0/parameter/2/station/71420/period/corrected-archive/data.csv'
+dataset_url2 = 'https://opendata-download-metobs.smhi.se/api/version/1.0/parameter/2/station/71420/period/latest-months/data.csv'
+data1 = pd.read_csv(dataset_url1, sep=';', skiprows=3607, names= [
+    'Fran Datum Tid (UTC)', 'till', 'day', 'temperature', 'Kvalitet', 'Tidsutsnitt:', 'Unnamed: 5'
+])
+data2 = pd.read_csv(dataset_url2, sep=';', skiprows=15, names= [
+    'Fran Datum Tid (UTC)', 'till', 'day', 'temperature', 'Kvalitet', 'Tidsutsnitt:', 'Unnamed: 5'
+])
 
 def train_data():
     x = data1.drop('Kvalitet', axis = 1)
@@ -75,8 +82,7 @@ def train_data():
 
     joblib.dump(clf, 'weather_predictor.pkl')
 
-
-    def get_the_weather(date):
+def get_the_weather(date):
     weather = data1.day
     temp = data1.temperature
 
@@ -107,7 +113,7 @@ def predict_weather():
     day_x = datetime.datetime.strptime(day_x, "%Y-%m-%d")
     date_x = (day_x - datetime.datetime(1970,1,1)).total_seconds()
 
-        X = [[date, date_x]]
+    X = [[date, date_x]]
     print("\n")
     print("-" * 48)
     print("The temperature is predicted to be: " + str(clf.predict(X)[0]))
