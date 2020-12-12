@@ -20,7 +20,6 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
 from datetime import timedelta
 
-
 column_names = [
     'Fran Datum Tid (UTC)', 'till', 'day', 'temperature', 'Kvalitet', 'Tidsutsnitt:', 'Unnamed: 5'
 ]
@@ -147,5 +146,3 @@ if __name__== "__main__":
             train()
         else:
             run_program(option)
-
-            
