@@ -106,3 +106,46 @@ def predict_weather():
     day_x = str(year) + "-" + str(month) + "-" + str(theday+1)
     day_x = datetime.datetime.strptime(day_x, "%Y-%m-%d")
     date_x = (day_x - datetime.datetime(1970,1,1)).total_seconds()
+
+        X = [[date, date_x]]
+    print("\n")
+    print("-" * 48)
+    print("The temperature is predicted to be: " + str(clf.predict(X)[0]))
+    print("The temperature was actually: " + str(get_the_weather(day)))
+    print("-" * 48)
+    print("\n")
+
+def run_menu():
+    print("*" *48)
+    print("-" *10 + " What would you like to do? " + "-" *10)
+    print("\n")
+    print("1. Look up the weather on a specific day")
+    print("2. Predict the weather on a specific day")
+    print("\n")
+
+    option = input("Enter option: ")
+
+    while True:
+        if option == 2 or option == 1 or option == 9:
+            break
+        option = input("Enter option: ")
+    return option
+
+def run_program(option):
+    if option == 1:
+        print("1")
+    elif option == 2:
+        predict_weather()
+
+if __name__== "__main__":
+    train_data()
+
+    while True:
+        option = run_menu()
+        if option == 9:
+            break
+        else:
+            run_program(option)
+
+
+
