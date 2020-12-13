@@ -1,9 +1,5 @@
-# Future and Present Weather Predictor DSC Wow
+# Future and Present Weather Predictor DSC Wow ⛅ 
 ## For DSC WOW Hackathon 2020
-## Contributors
-- Swastik Mishra
-- Ayush Agrawal
-- Sourav Bera
 
 [implemented by Scikit-learn]  
 
@@ -47,3 +43,11 @@ using `spyder` to run weather_prediction.py (Recommended)
 ![sample_plot_1](./sample_outputs/sample_plot_1.png)  
 ![sample_plot_2](./sample_outputs/sample_plot_2.png)  
 ![sample_plot_3](./sample_outputs/sample_plot_3.png)  
+
+
+## Project Contributors
+- Sourav Bera
+- Swastik Mishra
+- Ayush Agrawal
+
+
