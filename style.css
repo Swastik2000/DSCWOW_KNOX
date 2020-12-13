@@ -1,0 +1,33 @@
+body{
+    background:url('weather1.jpg') no-repeat;
+    background-size: 1527px 839px;
+    padding: 0px;
+    margin: 0px;
+    height:100%;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+}
+header{
+    margin: 20px;
+}
+
+h1{
+    text-align: center;
+    font-size: 59px;
+    color: rgb(92, 92, 35);
+}
+
+
+.contain{
+    display: flex;
+    flex-direction: column;
+    padding:82px;
+   align-items: center;
+   justify-content: center;
+   margin: 79px;
+}
+
+.contains{
+    padding: 11px;
+
+}
