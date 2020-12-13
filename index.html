@@ -17,9 +17,15 @@
                 <label for="date">DATE</label>
                 <input type="date" name="date" id="date">
             </div>
-            <div class="contains">
-                <input type="submit" value="SUBMIT">
-            </div>
+            <button onclick="document.getElementById('demo').innerHTML = getRndInteger(25,31)">Click Me</button>
+
+<p id="demo"></p>
+
+<script>
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+</script>
         </form>
     </div>
 </body>
